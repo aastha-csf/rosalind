@@ -11,7 +11,9 @@ def countingDnaNucleotides(filename):
             G += 1
         elif nucleotide == "T":
             T += 1
-    output = str(A) + " " + str(C) + " " + str(G) + " " + str(T)
-    return output
+
+    counts = str(A) + " " + str(C) + " " + str(G) + " " + str(T)
+    setOutputToFile(counts)
+    return counts
 
 print(countingDnaNucleotides("data/rosalind_dna.txt"))
