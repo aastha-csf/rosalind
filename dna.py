@@ -11,9 +11,7 @@ def countingDnaNucleotides(filename):
             G += 1
         elif nucleotide == "T":
             T += 1
-    
-    return str(A) + " " + str(C) + " " + str(G) + " " + str(T)
+    output = str(A) + " " + str(C) + " " + str(G) + " " + str(T)
+    return output
 
-output = countingDnaNucleotides("data/rosalind_dna.txt")
-print(output)
-setOutputToFile(output)
+print(countingDnaNucleotides("data/rosalind_dna.txt"))
