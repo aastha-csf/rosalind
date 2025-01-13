@@ -60,15 +60,14 @@ def getInputFromFASTAFile(fileName: str):
 
 def getInputFromFASTAFileWithID(fileName: str):
     """
-    Reads a FASTA file and returns a list containing sequence IDs and their corresponding DNA sequences.
+    Reads a FASTA file and returns a dictionary of DNA sequences in the file with their IDs.
 
     Parameters:
         fileName (str): The name of the FASTA file to be read.
 
     Returns:
-        list: A list where each DNA sequence is preceded by its sequence ID.
+        dict: A dictionary of DNA sequences in the file with their IDs.
     """
-
     DNAString = ""
     dataset = []
     for line in getInputFromFile(fileName).split("\n"):
@@ -76,13 +75,13 @@ def getInputFromFASTAFileWithID(fileName: str):
             if DNAString != "":
                 dataset.append(DNAString)
                 DNAString = ""
-            dataset.append(line)
+            dataset.append(line[1:])
         else:
             DNAString = DNAString + line
             
     dataset.append(DNAString)
 
-    return dataset[::]
+    return {dataset[i]: dataset[i+1] for i in range(0,len(dataset), 2)}
 
 def printMatrix(matrix=""):
     """
