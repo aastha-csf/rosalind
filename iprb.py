@@ -3,8 +3,6 @@ from rosalindUtilities import getInputFromFile, setOutputToFile
 
 filename = "data/rosalind_" + os.path.basename(__file__)[:-2] + "txt"
 
-from rosalindUtilities import getInputFromFile, setOutputToFile
-
 def getProbabilityOffspringWithDomAllele(k, m, n):
     """
     This function takes in 3 parameters, k, m, and n, and 
